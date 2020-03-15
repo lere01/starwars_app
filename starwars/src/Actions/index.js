@@ -16,6 +16,5 @@ export const getAll = () => dispatch => {
 
 export const getPerson = async url => {
   const result = await Axios.get(url);
-  console.log(result.data);
   return result.data;
 };

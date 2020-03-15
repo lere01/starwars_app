@@ -7,13 +7,9 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "../Style/style.css";
 import DisplayPerson from "./Person";
 
-const Home = ({
-  getAll,
-  check,
-  data_entering,
-  isLoading,
-}) => {
+const Home = ({ getAll, check, data_entering, isLoading }) => {
   const [data, setdata] = useState([...data_entering]);
+  let counter = 0;
 
   useEffect(() => {
     getAll();
@@ -24,12 +20,19 @@ const Home = ({
     e.preventDefault();
     let siblingID = e.target.nextSibling.id;
     let divTarget = document.getElementById(siblingID);
-    divTarget.style.display = "block";
+
+    if (counter === 1) {
+      counter = 0;
+      divTarget.style.display = "none";
+    } else {
+      counter += 1;
+      divTarget.style.display = "block";
+    }
   };
 
   return (
-    <Container id="main" >
-      <Container id="left" >
+    <Container id="main">
+      <Container id="left">
         <div id="list">
           <span className="header-p">Your Favourite Starwars Character</span>
           {isLoading === true && (
@@ -49,13 +52,8 @@ const Home = ({
           {isLoading === false &&
             data.length > 1 &&
             data.map((item, ind) => (
-              <Container>
-                <a
-                  key={ind}
-                  href={item[1]}
-                  id={item[1]}
-                  onClick={openDetail}
-                >
+              <Container key={ind}>
+                <a href={item[1]} id={item[1]} onClick={openDetail}>
                   {item[0]}
                 </a>
                 <DisplayPerson ind={ind} url={item[1]} />
@@ -63,7 +61,6 @@ const Home = ({
             ))}
         </div>
       </Container>
-
     </Container>
   );
 };
@@ -71,7 +68,7 @@ const Home = ({
 const mapStateToProps = ({ UpdateReducer }) => ({
   data_entering: UpdateReducer?.namesByUrls,
   check: UpdateReducer?.check,
-  isLoading: UpdateReducer?.isLoading,
+  isLoading: UpdateReducer?.isLoading
 });
 
 export default connect(mapStateToProps, { getAll: getAll, getOne: getPerson })(

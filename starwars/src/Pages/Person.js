@@ -4,7 +4,7 @@ import { getPerson } from "../Actions/index";
 
 const DisplayPerson = ({ url, ind }) => {
   const [person, setPerson] = useState({});
-  useEffect((url) => {
+  useEffect(() => {
     getPerson(url).then(x => setPerson(x));
   }, []);
 
