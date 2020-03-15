@@ -17,6 +17,10 @@ p {
   padding-left: 1rem;
 }
 
+h3 {
+  display: inline;
+}
+
 #list {
   display: flex;
   flex-direction: column;
@@ -81,6 +85,16 @@ p {
   margin: 0.5rem auto;
   position: relative;
   border-radius: 1rem;
+}
+
+.slider {
+  display: block;
+	overflow-y: hidden;
+	transition-property: all;
+	transition-duration: .5s;
+  transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  height: fit-content;
+  max-height: fit-content;
 }
 
 .detail {
