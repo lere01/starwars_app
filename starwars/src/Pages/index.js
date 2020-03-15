@@ -13,9 +13,9 @@ const Home = ({
   data_entering,
   isLoading,
 }) => {
-  const [data, setdata] = useState([]);
+  const [data, setdata] = useState([...data_entering]);
 
-  useEffect((data_entering, getAll) => {
+  useEffect(() => {
     getAll();
     setdata(data_entering);
   }, [check]);
@@ -51,7 +51,7 @@ const Home = ({
             data.map((item, ind) => (
               <Container>
                 <a
-                  reactKey={ind}
+                  key={ind}
                   href={item[1]}
                   id={item[1]}
                   onClick={openDetail}
