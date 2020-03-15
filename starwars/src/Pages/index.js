@@ -9,19 +9,25 @@ import DisplayPerson from "./Person";
 
 const Home = ({ getAll, check, data_entering, isLoading }) => {
   const [data, setdata] = useState([...data_entering]);
+  let counter = 1;
 
   useEffect(() => {
-      getAll();
-      setdata(data_entering);
-    },
-    [check]
-  );
+    getAll();
+    setdata(data_entering);
+  }, [check]);
 
   const openDetail = e => {
     e.preventDefault();
     let siblingID = e.target.nextSibling.id;
     let divTarget = document.getElementById(siblingID);
-    divTarget.style.display = "block";
+
+    if (counter === 2) {
+      counter = 1;
+      divTarget.style.display = "none";
+    } else {
+      counter += 1;
+      divTarget.style.display = "block";
+    }
   };
 
   return (
@@ -44,13 +50,8 @@ const Home = ({ getAll, check, data_entering, isLoading }) => {
           {isLoading === false &&
             data.length > 1 &&
             data.map((item, ind) => (
-              <Container>
-                <a
-                  key={ind}
-                  href={item[1]}
-                  id={item[1]}
-                  onClick={openDetail}
-                >
+              <Container key={ind}>
+                <a href={item[1]} id={item[1]} onClick={openDetail}>
                   {item[0]}
                 </a>
                 <DisplayPerson ind={ind} url={item[1]} />
