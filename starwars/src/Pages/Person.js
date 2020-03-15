@@ -18,7 +18,6 @@ const DisplayPerson = ({ url, ind }) => {
       <span id="close-detail" onClick={closeDetail}>
         close
       </span>
-      {console.log("happening", person)}
       <p>
         Height: <span className="detail">{person.height}</span>
       </p>

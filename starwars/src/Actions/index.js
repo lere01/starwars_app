@@ -8,14 +8,15 @@ export const getAll = () => dispatch => {
         type: "UPDATE_ALL_PERSONS",
         payload: response.data.results
       });
+      
     })
     .catch(error => {
-      return error;
+      console.log(error);
     });
+    
 };
 
 export const getPerson = async url => {
   const result = await Axios.get(url);
-  console.log(result.data);
   return result.data;
 };

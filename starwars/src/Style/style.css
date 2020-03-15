@@ -17,6 +17,10 @@ p {
   padding-left: 1rem;
 }
 
+h3 {
+  display: inline;
+}
+
 #list {
   display: flex;
   flex-direction: column;
