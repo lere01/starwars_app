@@ -5,8 +5,7 @@ import { getPerson } from "../Actions/index";
 const DisplayPerson = ({ url, ind }) => {
   const [person, setPerson] = useState({});
   useEffect(() => {
-    getPerson(url).then(x => {
-      setPerson(x)});
+    getPerson(url).then(x => setPerson(x));
   }, []);
 
   const closeDetail = e => {

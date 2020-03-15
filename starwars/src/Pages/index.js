@@ -7,18 +7,9 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "../Style/style.css";
 import DisplayPerson from "./Person";
 
-
 const Home = ({ getAll, check, data_entering, isLoading }) => {
   const [data, setdata] = useState([...data_entering]);
-  let counter = 1;
-
-const Home = ({
-  getAll,
-  check,
-  data_entering,
-  isLoading,
-}) => {
-  const [data, setdata] = useState([...data_entering]);
+  let counter = 0;
 
 
   useEffect(() => {
@@ -31,8 +22,8 @@ const Home = ({
     let siblingID = e.target.nextSibling.id;
     let divTarget = document.getElementById(siblingID);
 
-    if (counter === 2) {
-      counter = 1;
+    if (counter === 1) {
+      counter = 0;
       divTarget.style.display = "none";
     } else {
       counter += 1;
@@ -60,18 +51,8 @@ const Home = ({
           {isLoading === false &&
             data.length > 1 &&
             data.map((item, ind) => (
-
               <Container key={ind}>
                 <a href={item[1]} id={item[1]} onClick={openDetail}>
-
-              <Container>
-                <a
-                  key={ind}
-                  href={item[1]}
-                  id={item[1]}
-                  onClick={openDetail}
-                >
-
                   {item[0]}
                 </a>
                 <DisplayPerson ind={ind} url={item[1]} />
