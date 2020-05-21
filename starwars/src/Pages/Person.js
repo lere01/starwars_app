@@ -19,21 +19,21 @@ const DisplayPerson = ({ url, ind }) => {
         close
       </span>
       <p>
-        Height: <span className="detail">{person.height}</span>
+        Height: <span style={{ color: "#fff" }} className="detail">{person.height}</span>
       </p>
       <p>
-        Mass: <span className="detail">{person.mass}</span>
+        Mass: <span style={{ color: "#fff" }} className="detail">{person.mass}</span>
       </p>
       <p>
-        Hair Colour: <span className="detail">{person.hair_color}</span>{" "}
+        Hair Colour: <span style={{ color: "#fff" }} className="detail">{person.hair_color}</span>{" "}
       </p>
       <p>
-        Skin Colour: <span className="detail">{person.skin_color}</span>{" "}
+        Skin Colour: <span style={{ color: "#fff" }} className="detail">{person.skin_color}</span>{" "}
       </p>
       <p>
-        Eye Colour: <span className="detail">{person.eye_color}</span>
+        Eye Colour: <span style={{ color: "#fff" }} className="detail">{person.eye_color}</span>
       </p>
-      {/* <p>No of Films: <span className="detail">{person.films}</span> </p> */}
+      {/* <p>No of Films: <span style={{ color: "#fff" }} className="detail">{person.films.length}</span> </p> */}
       {/* <p>Home World: <span className="detail">{person.homeworld}</span> </p> */}
     </Container>
   );
