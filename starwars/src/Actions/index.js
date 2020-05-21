@@ -15,6 +15,7 @@ export const getAll = () => dispatch => {
 };
 
 export const getPerson = async url => {
-  const result = await Axios.get(url);
+  const url2 = "https://swapi.dev/api/people/" + url;
+  const result = await Axios.get(url2);
   return result.data;
 };
